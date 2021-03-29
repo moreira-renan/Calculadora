@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="shortcut icon" href="/calc.jpg"> 
+</head> 
+
+<style>
+    .btn {
+        width: 50px;
+        height: 50px;
+        font: normal 30px Arial;
+        align-items: center;
+        float: left;
+        border-radius: 0.8rem;
+    }
+
+    .btn-large {
+        width: 50px;
+        height: 210px;
+        font: normal 30px Arial;
+        align-items: center;
+        float: right;
+        margin-left: 0.8rem;
+        border-radius: 0.8rem;
+        background-color: rgb(35, 152, 219);
+    }
+    
+    .displayCss {
+        width: 270px;
+        height: 30px;
+        font: normal 25px Arial;
+        margin-bottom: 1em;
+        margin-top: 1rem;
+        border-radius: 0.8rem;
+    }
+
+    .field {
+        background-color: rgb(77, 72, 72);
+        width: 300px;
+        height: 300px;
+        border-radius: 0.8rem;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin-left: 1.5rem;
+        margin-bottom: 2rem;    
+    }
+
+    .btn:hover {
+    background-color: rgb(155, 155, 152);
+}
+
+    .btn-large:hover {
+    background-color: rgb(9, 112, 172);
+}
+
+</style>
+
+<body>
+    <h1>Calculadora</h1>
+    <fieldset class="field">
+    <form name="calc">
+        <table style="float: left;">
+            <!-- Display-->
+            <input id="display.id" type=text Name="display" class="displayCss"><br>
+
+            <!-- Botões-->
+            <tr><td><input type="button" value="7" class="btn" onClick="calc.display.value+='7'"></td>
+            <td><input type="button" value="8" class="btn" onClick="calc.display.value+='8'"></td>
+            <td><input type="button" value="9" class="btn" onClick="calc.display.value+='9'"></td>
+            <td><input type="button" value="÷" class="btn" onClick="calc.display.value+='/'"></td></tr>
+
+            <tr><td><input type="button" value="4" class="btn" onClick="calc.display.value+='4'"></td>
+            <td><input type="button" value="5" class="btn" onClick="calc.display.value+='5'"></td>
+            <td><input type="button" value="6" class="btn" onClick="calc.display.value+='6'"></td>
+            <td><input type="button" value="x" class="btn" onClick="calc.display.value+='*'"></td></tr>
+
+            <tr><td><input type="button" value="1" class="btn" onClick="calc.display.value+='1'"></td>
+            <td><input type="button" value="2" class="btn" onClick="calc.display.value+='2'"></td>
+            <td><input type="button" value="3" class="btn" onClick="calc.display.value+='3'"></td>
+            <td><input type="button" value="-" class="btn" onClick="calc.display.value+='-'"></td></tr> 
+
+            <tr><td><input type="button" value="0" class="btn" onClick="calc.display.value+='0'"></td>
+            <td><input type="button" value="." class="btn" onClick="calc.display.value+='.'"></td>
+            <td><input type="button" value="+" class="btn" onClick="calc.display.value+='+'"></td>
+            <td><input type="button" value="C" class="btn" onClick="calc.display.value=''; paint()"></td></tr>
+        </table>
+    
+   
+        <table style="float: left;">
+            <tr><td><input type="button" value="=" class="btn-large" onClick="result()"></td></tr>
+        </table>
+    </form>
+    </fieldset>
+
+<script>
+        // função do resultado exibido no display
+        function result() {
+            var result = document.getElementById('display.id').value
+
+            document.getElementById('display.id').value = eval (result)
+
+            var resultado =  document.getElementById('display.id').value
+
+            if ( resultado < 0 ) {
+                document.getElementById('display.id').style.color = 'red'
+            }
+            else {
+                document.getElementById('display.id').style.color = 'blue'
+            }              
+        }
+
+        function paint() {
+            document.getElementById('display.id').style.color = 'black'
+        }
+ 
+</script>
+
+</body>
+
+</html>
